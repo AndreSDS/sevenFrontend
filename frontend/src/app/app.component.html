@@ -1,10 +1,16 @@
 <!-- Toolbar -->
-<mat-toolbar color="primary" class="app-header">
+<mat-toolbar color="primary" class="app-header" *ngIf="currentUser">
     <h1>App-CRUD</h1>
-    <nav class="nav-tool-items">
-        <a mat-button routerLink="login" routerLinkActive="active">Log in</a>
-        <a mat-button mat-raised-button routerLink="register" routerLinkActive="active">Register</a>
-    </nav>
+    <a routerLink="/users">Home</a>
+    <a (click)="logout()">Logout</a>
 </mat-toolbar>
 
-<router-outlet></router-outlet>
+<!--Container onde carregar a páginas-->
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
+
+<!--Footer do app-->
+<footer>
+    <p>;&copy; Made with <span>;&hearts;</span> by AndreSDS.</p>
+</footer>
