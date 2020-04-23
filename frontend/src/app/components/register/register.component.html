@@ -1,1 +1,28 @@
-<p>register works!</p>
+<h2>Registro</h2>
+
+<form [formGroup]="registerForm" (onSubmit)="onSubmit()">
+    <div>
+        <label for="firstName">First Name</label>
+        <input type="text" formControlName="firstName">
+    </div>
+
+    <div>
+        <label for="lastName">Last Name</label>
+        <input type="text" formControlName="lastName">
+    </div>
+
+    <div>
+        <label for="userName">User Name</label>
+        <input type="text" formControlName="userName">
+    </div>
+
+    <div>
+        <label for="password">Password</label>
+        <input type="text" formControlName="password">
+    </div>
+
+    <div>
+        <button type="submit">Register</button>
+        <a routerLink="/login">Cancel</a>
+    </div>
+</form>

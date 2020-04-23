@@ -3,15 +3,8 @@ import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTT
 import { Observable, of, throwError, pipe } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
-const users = [
-    {
-        id: 1,
-        firstName: "André",
-        lastName: "Souza da Silva",
-        username: "andresds",
-        password: "test"
-    }
-];
+//array de users registrados do storage
+const users = JSON.parse(localStorage.getItem('users')) || [];
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
@@ -30,6 +23,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             switch (true) {
                 case url.endsWith('/users/authenticate') && method === 'POST':
                     return authenticate();
+                case url.endsWith('/users/register') && method === 'POST':
+                    return register();
                 default:
                     return next.handle(req);
             }
@@ -47,6 +42,21 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 lastName: user.lastName,
                 token: 'fake-token-jwt'
             });
+        }
+
+        //function register()
+        function register(){
+            const user = body;
+
+            if (users.find(x=>x.username === user.username)) {
+                return error("Username "+ user.username + " is já existe.")
+            }
+
+            user.id = users.length ? Math.max(...users.map(x=>x.id)) + 1 : 1;
+            users.push(user);
+            localStorage.setItem('users', JSON.stringify(users));
+
+            return ok();
         }
 
         //function ok e error

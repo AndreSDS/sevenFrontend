@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../model/user';
 import { Router, ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,15 +15,15 @@ export class UserService {
     private route: ActivatedRoute) {}
 
   getAllUsers(){
-    return this.http.get<User[]>(`${config.apiUrl}/users`);
+    return this.http.get<User[]>(`${environment.apiUrl}/users`);
   }
 
-  addUser(user: User){
-    return this.http.post(`${config.apiUrl}/add`, user);
+  registerUser(user: User){
+    return this.http.post(`${environment.apiUrl}/users/register`, user);
   }
 
-  updateUserById(id)  {
-    this.router.navigate(['update', id], { relativeTo: this.route });
+  delete(id)  {
+    return this.http.delete(`${environment.apiUrl}/users/${id}`);
   }
 
 }
