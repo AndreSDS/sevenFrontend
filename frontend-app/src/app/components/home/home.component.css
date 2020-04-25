@@ -1,0 +1,28 @@
+.mat-container{
+    display: grid;
+    padding: 2rem;
+    grid-gap: 2rem;
+    justify-content: center;
+    grid-template-columns: repeat(2, 30%);
+    background-color: dimgray;
+    color: #fff;
+}
+.mat-card-content{
+    margin: 16px;
+}
+.mat-card>.mat-card-actions{
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media screen and (max-width: 500px) {
+    .mat-container {
+      grid-template-columns: 80%;
+    }
+  }
+
+  @media screen and (max-width: 800px) and (min-width: 501px) {
+    .mat-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }

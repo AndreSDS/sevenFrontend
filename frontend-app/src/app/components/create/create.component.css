@@ -1,0 +1,29 @@
+.mat-container{
+    background-color: dimgray;
+    height: calc(100% - 128px);
+}
+.mat-card{
+    width: 60%;
+    margin: auto;
+    height: calc(100% - 32px);
+    display: grid;
+}
+.mat-card-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mat-form-field{
+    width:100%;
+}
+.mat-card-content form{
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+    grid-gap: 15px;
+}
+.mat-card-content form .button{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    align-items: center;
+}

@@ -1,0 +1,7 @@
+.mat-toolbar{
+    align-items: center;
+}
+.mat-toolbar-row{
+    padding: 0;
+    width: 60%;
+}
