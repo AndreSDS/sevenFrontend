@@ -22,7 +22,7 @@ export class CreateComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.fb.group({
       name: [null, [Validators.required]],
-      username: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
+      username: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
       email: [null, [Validators.required, Validators.email]],
       phone: [null, [Validators.required]],
       website: [null]

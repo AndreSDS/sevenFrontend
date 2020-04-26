@@ -7,7 +7,7 @@ import { take } from 'rxjs/operators';
 })
 export class HomeService {
 
-  apiUsers: string = "https://jsonplaceholder.typicode.com/users";
+  apiUsers: string = "http://localhost:8000/users";
 
   constructor(private http: HttpClient) { }
 
