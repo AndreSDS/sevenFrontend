@@ -55,7 +55,7 @@ export class EditComponent implements OnInit {
     this.homeService.upDateUser(this.form.value).subscribe(
       success => {
         alert(`Usuário ${this.form.value.name}, atualizado com sucesso!`)
-        //  this.router.navigate(['/']);
+        this.router.navigate(['/']);
         console.log(this.form.value);
       },
       error => console.log(error)
